@@ -171,3 +171,4 @@ COMMENT ON COLUMN tracking_vicente_perpetuo.event_type IS
 
 
 
+

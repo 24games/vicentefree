@@ -91,3 +91,4 @@ O Cursor geralmente gerencia o GitHub MCP automaticamente. Se o problema persist
 
 
 
+
