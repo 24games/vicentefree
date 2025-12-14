@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipster Vicente - O Maior Grupo de Análises de Futebol do Chile</title>
+    
+    <!-- Server-Side Tracking Script (ETAPA 1) -->
+    <script src="tracking.js"></script>
+    <!-- Fallback se tracking.js não estiver disponível -->
+    <script>
+      // Garantir que o script funciona mesmo sem servidor
+      if (typeof window.tracking === 'undefined') {
+        console.log('Tracking script carregando...');
+      }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #10B981, #00FF00);
+            width: 0%;
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #000 0%, #0a3d2e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .badge-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            background: rgba(16, 185, 129, 0.2);
+            border: 2px solid #10B981;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, #10B981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .trust-line {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: #9ca3af;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: #fff;
+            border: none;
+            padding: 1.5rem 3rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(16, 185, 129, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: ctaPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes ctaPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(16, 185, 129, 0.6);
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: #0a0a0a;
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .problem-card {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid #ef4444;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            background: linear-gradient(135deg, #064e3b 0%, #10B981 100%);
+            padding: 6rem 2rem;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .solution-card {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+            border-color: #fff;
+        }
+
+        .solution-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        /* Authority Section */
+        .authority-section {
+            background: #000;
+            padding: 6rem 2rem;
+        }
+
+        .authority-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .vicente-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #064e3b 100%);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 2px solid #10B981;
+        }
+
+        .vicente-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10B981, #059669);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            border: 4px solid #fff;
+        }
+
+        .vicente-name {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .vicente-bio {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d1d5db;
+            margin-bottom: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #10B981;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+
+        .testimonials {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid #10B981;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10B981, #059669);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+
+        .testimonial-result {
+            margin-top: 1rem;
+            color: #10B981;
+            font-weight: 700;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background: linear-gradient(180deg, #000 0%, #0a3d2e 100%);
+            padding: 6rem 2rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: #000;
+            border: 2px solid #10B981;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.4);
+        }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #10B981;
+        }
+
+        .benefit-card p {
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: #0a0a0a;
+            padding: 6rem 2rem;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #10B981;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: #d1d5db;
+            line-height: 1.8;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 2rem;
+        }
+
+        .final-cta-subtext {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #10B981;
+        }
+
+        /* Sticky CTA Mobile */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            padding: 1rem;
+            z-index: 999;
+            display: none;
+            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .sticky-cta button {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: #fff;
+            color: #059669;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .authority-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sticky-cta {
+                display: block;
+            }
+
+            .hero {
+                min-height: 90vh;
+            }
+
+            .cta-primary {
+                padding: 1.2rem 2rem;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge-container">
+                <div class="badge">🇨🇱 Maior Grupo do Chile</div>
+                <div class="badge">⚽ Todas as Ligas</div>
+                <div class="badge">📊 Análise Profissional</div>
+            </div>
+            
+            <h1>O MAIOR GRUPO DE ANÁLISES DE FUTEBOL DO CHILE AGORA NO BRASIL</h1>
+            
+            <p class="subtitle">
+                Transforme Pequenos Investimentos em Lucros Reais com Tips Diárias de Experts Chilenos | +15.000 Membros Ativos
+            </p>
+
+            <div class="trust-line">
+                <div class="trust-item">
+                    <span>✅</span>
+                    <span>15K+ membros ativos</span>
+                </div>
+                <div class="trust-item">
+                    <span>✅</span>
+                    <span>100K+ seguidores</span>
+                </div>
+                <div class="trust-item">
+                    <span>✅</span>
+                    <span>Análises diárias</span>
+                </div>
+            </div>
+
+            <button class="cta-primary" onclick="scrollToTelegram()">
+                ENTRAR NO GRUPO AGORA 🚀
+            </button>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title">Cansado de Perder Dinheiro em Apostas?</h2>
+            
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">❌</div>
+                    <h3>Apostar no Escuro</h3>
+                    <p>Sem análise profissional, você está jogando dinheiro fora ao invés de investir estrategicamente</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">❌</div>
+                    <h3>Perder a Banca</h3>
+                    <p>Falta de gestão adequada leva à perda total do capital em poucos dias</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">❌</div>
+                    <h3>Seguir "Palpiteiros"</h3>
+                    <p>Tips sem estratégia comprovada que te fazem perder mais do que ganhar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section">
+        <div class="container">
+            <h2 class="section-title">O Método Vicente: Análise + Gestão + Estratégia</h2>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">🎯</div>
+                    <h3>Análises Aprofundadas</h3>
+                    <p>Cobertura completa de todas as principais ligas mundiais com análise estatística profissional todos os dias</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">💰</div>
+                    <h3>Gestão de Banca</h3>
+                    <p>Proteja seu capital e cresça de forma consistente e sustentável com nosso método comprovado</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">✅</div>
+                    <h3>Tips Seguras</h3>
+                    <p>Entradas apenas em jogos com alta probabilidade de sucesso baseadas em dados reais</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authority Section -->
+    <section class="authority-section">
+        <div class="container">
+            <h2 class="section-title">Conheça o Expert Por Trás do Método</h2>
+            
+            <div class="authority-content">
+                <div class="vicente-card">
+                    <div class="vicente-image">👨‍💼</div>
+                    <h3 class="vicente-name">Vicente</h3>
+                    <p class="vicente-bio">
+                        Expert chileno com anos de experiência no mercado de apostas esportivas, Vicente construiu o maior grupo de análises de futebol do Chile. Sua metodologia combina análise estatística profunda com gestão rigorosa de banca, transformando apostas em investimentos estratégicos.
+                    </p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">15K+</span>
+                            <span class="stat-label">Membros Ativos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100K+</span>
+                            <span class="stat-label">Seguidores</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">20+</span>
+                            <span class="stat-label">Ligas Cobertas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonials">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">👤</div>
+                            <div>
+                                <strong>João Silva</strong><br>
+                                <small style="color: #9ca3af;">São Paulo, BR</small>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "Entrei com R$200, hoje já saquei R$1.500 seguindo as análises. Vicente é diferente de todos os outros, ele realmente entende do jogo!"
+                        </p>
+                        <p class="testimonial-result">💰 Lucro: +650%</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">👤</div>
+                            <div>
+                                <strong>Carlos Mendes</strong><br>
+                                <small style="color: #9ca3af;">Rio de Janeiro, BR</small>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "Finalmente encontrei um grupo sério. As tips são bem fundamentadas e a gestão de banca salvou minha vida. Já recuperei tudo que perdi antes!"
+                        </p>
+                        <p class="testimonial-result">💰 Lucro: +420%</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">👤</div>
+                            <div>
+                                <strong>Rafael Costa</strong><br>
+                                <small style="color: #9ca3af;">Belo Horizonte, BR</small>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "Nem acreditava mais em tips, mas o método Vicente me provou errado. Consistência é a chave e aqui eu encontrei!"
+                        </p>
+                        <p class="testimonial-result">💰 Lucro: +380%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">O Que Você Recebe ao Entrar no Grupo</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">📲</div>
+                    <h3>Tips Diárias</h3>
+                    <p>Análises profissionais enviadas direto no seu Telegram todos os dias</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h3>Planilha de Gestão</h3>
+                    <p>Controle sua banca como um profissional com nossa planilha exclusiva</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎓</div>
+                    <h3>Método Completo</h3>
+                    <p>Entenda a estratégia por trás de cada tip e aprenda a pensar como um expert</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌎</div>
+                    <h3>Cobertura Total</h3>
+                    <p>Brasileirão, Champions League, Libertadores e mais de 20 ligas mundiais</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">👥</div>
+                    <h3>Comunidade Ativa</h3>
+                    <p>Troque experiências com mais de 15.000 membros engajados</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Entradas Seguras</h3>
+                    <p>Apenas apostas com análise técnica aprovada e alta probabilidade</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <button class="cta-primary" onclick="scrollToTelegram()">
+                    SIM, EU QUERO TUDO ISSO 💎
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        É realmente gratuito?
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Sim! O acesso ao grupo do Telegram é totalmente gratuito. Você recebe todas as análises diárias, tips e conteúdo educativo sem pagar nada.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        Quantas tips recebo por dia?
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        A quantidade varia de acordo com as oportunidades identificadas, mas geralmente enviamos de 2 a 5 tips diárias com análise completa. Qualidade sempre vem antes de quantidade.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        Preciso entender de futebol?
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Não é necessário! Nossas análises são completas e explicadas de forma simples. Você aprende enquanto aplica o método. Muitos membros começaram sem conhecimento algum.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        Qual o valor mínimo para começar?
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Recomendamos começar com pelo menos R$100 para aplicar a gestão de banca adequadamente. Mas o método funciona com qualquer valor, sempre respeitando o gerenciamento de risco.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        Como funciona a gestão de banca?
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Ensinamos você a dividir seu capital de forma inteligente, nunca arriscando mais do que deveria em uma única entrada. É o segredo para crescer de forma consistente e proteger seu investimento.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        Posso sair do grupo quando quiser?
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Claro! Você não tem nenhum compromisso. Entre, teste o método, e se não gostar, pode sair a qualquer momento sem problemas.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta" id="telegram-section">
+        <div class="container">
+            <h2>Junte-se a +15.000 Membros Agora</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 3rem;">
+                Não perca mais tempo e dinheiro apostando no escuro. Comece hoje mesmo com o método que já transformou milhares de vidas.
+            </p>
+            
+            <button class="cta-primary" onclick="openTelegram()">
+                🔥 ENTRAR NO GRUPO DO TELEGRAM 🔥
+            </button>
+
+            <div class="final-cta-subtext">
+                <span>🔒 Acesso Imediato</span>
+                <span>⚡ Grupo Exclusivo</span>
+                <span>🇨🇱 Do Chile para o Brasil</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p style="color: #9ca3af; margin-bottom: 1rem;">
+                © 2024 Tipster Vicente. Todos os direitos reservados.
+            </p>
+            <div class="footer-links">
+                <a href="#telegram-section">Entrar no Grupo</a>
+                <a href="#" onclick="toggleFaq(document.querySelector('.faq-item')); return false;">FAQ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky CTA Mobile -->
+    <div class="sticky-cta">
+        <button onclick="openTelegram()">
+            ENTRAR NO GRUPO AGORA 🚀
+        </button>
+    </div>
+
+    <script>
+        // ============================================================================
+        // FUNÇÕES DE TRACKING INTEGRADAS
+        // ============================================================================
+        
+        // Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('progressBar').style.width = scrollPercent + '%';
+        });
+
+        // Scroll to Telegram Section
+        function scrollToTelegram() {
+            // Enviar evento de tracking ao clicar no CTA
+            if (window.tracking) {
+                const trackingData = window.tracking.collect();
+                trackingData.event_type = 'CTAClick';
+                trackingData.cta_location = 'hero';
+                window.tracking.send(trackingData);
+            }
+            
+            document.getElementById('telegram-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Open Telegram (com tracking)
+        function openTelegram() {
+            // Enviar evento de tracking ao abrir Telegram
+            if (window.tracking) {
+                const trackingData = window.tracking.collect();
+                trackingData.event_type = 'TelegramClick';
+                trackingData.cta_location = window.location.hash === '#telegram-section' ? 'final_cta' : 'sticky_cta';
+                trackingData.telegram_url = 'https://t.me/tipstervicente';
+                window.tracking.send(trackingData);
+            }
+            
+            window.open('https://t.me/tipstervicente', '_blank');
+        }
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const isActive = element.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            if (!isActive) {
+                element.classList.add('active');
+            }
+        }
+
+        // Scroll tracking (opcional - rastreia scroll depth)
+        let maxScroll = 0;
+        window.addEventListener('scroll', () => {
+            const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+            if (scrollPercent > maxScroll) {
+                maxScroll = scrollPercent;
+                
+                // Enviar eventos em marcos importantes
+                if (maxScroll >= 25 && maxScroll < 30) {
+                    trackScrollEvent(25);
+                } else if (maxScroll >= 50 && maxScroll < 55) {
+                    trackScrollEvent(50);
+                } else if (maxScroll >= 75 && maxScroll < 80) {
+                    trackScrollEvent(75);
+                } else if (maxScroll >= 90) {
+                    trackScrollEvent(90);
+                }
+            }
+        });
+
+        function trackScrollEvent(percent) {
+            if (window.tracking) {
+                const trackingData = window.tracking.collect();
+                trackingData.event_type = 'ScrollDepth';
+                trackingData.scroll_percent = percent;
+                window.tracking.send(trackingData);
+            }
+        }
+    </script>
+</body>
+</html>
+
