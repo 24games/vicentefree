@@ -152,9 +152,9 @@ function LandingPage({ telegramLink, slug }) {
     </a>
   );
 
-  // Link para download do Telegram
-  const TelegramDownloadLink = () => (
-    <a href="https://telegram.org/dl" target="_blank" rel="noopener noreferrer" className="no-telegram-link">
+  // Link "¿No tienes Telegram?" - aponta para WhatsApp (regra de negócio)
+  const NoTelegramLink = () => (
+    <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="no-telegram-link">
       ¿No tienes Telegram? Descárgalo aquí
     </a>
   );
@@ -186,7 +186,7 @@ function LandingPage({ telegramLink, slug }) {
           <div className="telegram-button-wrapper">
             <TelegramButton href="#telegram-section" onClick={scrollToTelegram} />
             <WhatsAppDownloadLink />
-            <TelegramDownloadLink />
+            <NoTelegramLink />
           </div>
         </div>
       </section>
@@ -227,7 +227,7 @@ function LandingPage({ telegramLink, slug }) {
           <div className="telegram-button-wrapper">
             <TelegramButton href="#telegram-section" onClick={scrollToTelegram} />
             <WhatsAppDownloadLink />
-            <TelegramDownloadLink />
+            <NoTelegramLink />
           </div>
         </div>
       </section>
@@ -266,7 +266,7 @@ function LandingPage({ telegramLink, slug }) {
           <div className="telegram-button-wrapper">
             <TelegramButton href="#telegram-section" onClick={scrollToTelegram} />
             <WhatsAppDownloadLink />
-            <TelegramDownloadLink />
+            <NoTelegramLink />
           </div>
         </div>
       </section>
@@ -304,7 +304,7 @@ function LandingPage({ telegramLink, slug }) {
           <div className="telegram-button-wrapper">
             <TelegramButton href="#telegram-section" onClick={scrollToTelegram} />
             <WhatsAppDownloadLink />
-            <TelegramDownloadLink />
+            <NoTelegramLink />
           </div>
         </div>
       </section>
@@ -338,7 +338,7 @@ function LandingPage({ telegramLink, slug }) {
           <div className="telegram-button-wrapper">
             <TelegramButton href="#telegram-section" onClick={scrollToTelegram} />
             <WhatsAppDownloadLink />
-            <TelegramDownloadLink />
+            <NoTelegramLink />
           </div>
         </div>
       </section>
@@ -371,7 +371,7 @@ function LandingPage({ telegramLink, slug }) {
           <div className="telegram-button-wrapper">
             <TelegramButton href="#telegram-section" onClick={scrollToTelegram} />
             <WhatsAppDownloadLink />
-            <TelegramDownloadLink />
+            <NoTelegramLink />
           </div>
         </div>
       </section>
@@ -398,8 +398,8 @@ function LandingPage({ telegramLink, slug }) {
             <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="telegram-download-link">
               ¿Dudas? Escríbenos al WhatsApp
             </a>
-            {/* LINK PARA BAIXAR TELEGRAM */}
-            <a href="https://telegram.org/dl" target="_blank" rel="noopener noreferrer" className="no-telegram-link">
+            {/* LINK "¿No tienes Telegram?" - aponta para WhatsApp */}
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="no-telegram-link">
               ¿No tienes Telegram? Descárgalo aquí
             </a>
           </div>
