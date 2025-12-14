@@ -64,3 +64,4 @@ git push -u origin main
 
 **Use a Opção 1 (Upload pelo navegador)** - É mais rápido e não precisa configurar autenticação!
 
+

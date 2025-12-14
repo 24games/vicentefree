@@ -112,3 +112,4 @@ window.tracking.send(window.tracking.collect());
 Para documentação completa, veja: [TRACKING_SETUP.md](./TRACKING_SETUP.md)
 
 
+

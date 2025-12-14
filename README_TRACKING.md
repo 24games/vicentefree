@@ -238,3 +238,4 @@ Problemas? Consulte:
 **Status:** ✅ Sistema implementado e tabela criada. Aguardando configuração de variáveis de ambiente e deploy.
 
 
+

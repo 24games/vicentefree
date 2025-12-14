@@ -90,3 +90,4 @@ O Cursor geralmente gerencia o GitHub MCP automaticamente. Se o problema persist
 - Windows: `%APPDATA%\Cursor\User\settings.json`
 
 
+

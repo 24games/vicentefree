@@ -170,3 +170,4 @@ COMMENT ON COLUMN tracking_vicente_perpetuo.event_type IS
 'Tipo de evento. Para ETAPA 1: PageView. Para ETAPA 2: Purchase, Lead, FTD, etc.';
 
 
+
