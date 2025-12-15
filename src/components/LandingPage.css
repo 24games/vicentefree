@@ -127,6 +127,36 @@ body {
     fill: #fff;
 }
 
+/* WhatsApp Button */
+.cta-whatsapp {
+    background: #25D366;
+    color: #fff;
+    border: none;
+    padding: 1.2rem 3rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+}
+
+.cta-whatsapp:hover {
+    background: #128C7E;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
+}
+
+.cta-whatsapp svg {
+    width: 22px;
+    height: 22px;
+    fill: #fff;
+}
+
 /* Sections */
 .social-proof,
 .method-section,
@@ -514,6 +544,11 @@ footer {
     }
 
     .cta-primary {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+    }
+
+    .cta-whatsapp {
         padding: 1rem 2rem;
         font-size: 1.1rem;
     }
