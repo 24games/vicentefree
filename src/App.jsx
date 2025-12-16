@@ -2,41 +2,48 @@ import { BrowserRouter, Routes, Route, useParams, Navigate } from 'react-router-
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import LandingPage from './components/LandingPage';
-import { getTelegramLink, DEFAULT_TELEGRAM_LINK, isValidSlug } from './config/campaignLinks';
+import { isValidSlug } from './config/campaignLinks';
 import './App.css';
 
 /**
  * Componente de Rota Dinâmica
- * Captura a slug da URL e passa o link correto do Telegram para a LandingPage
+ * Valida a slug e renderiza a LandingPage apenas se a slug for válida
  */
 function CampaignPage() {
   const { slug } = useParams();
   
-  // Obtém o link do Telegram baseado na slug (ou usa o default)
-  const telegramLink = getTelegramLink(slug);
+  // Valida se a slug está na lista de slugs permitidas
+  if (!isValidSlug(slug)) {
+    // Redireciona para home se a slug não for válida
+    return <Navigate to="/" replace />;
+  }
   
-  // Log para debug (remover em produção)
-  console.log(`[CampaignPage] Slug: ${slug}, Telegram Link: ${telegramLink}`);
+  // Log para debug (remover em produção se necessário)
+  console.log(`[CampaignPage] Slug válida: ${slug}`);
   
-  return <LandingPage telegramLink={telegramLink} slug={slug} />;
+  // Renderiza a LandingPage (WhatsApp link é fixo, não precisa passar via props)
+  return <LandingPage slug={slug} />;
 }
 
 /**
- * Página padrão (sem slug) - usa o link default do Telegram
+ * Página padrão (sem slug)
  */
 function DefaultPage() {
-  return <LandingPage telegramLink={DEFAULT_TELEGRAM_LINK} slug="default" />;
+  return <LandingPage slug="default" />;
 }
 
 /**
  * App Principal com Sistema de Rotas
  * 
  * Rotas suportadas:
- * - / → Página padrão (usa DEFAULT_TELEGRAM_LINK)
- * - /cr1-a3f1 → Link do Telegram: w48123852
- * - /cr2-a3f1 → Link do Telegram: w48123854
- * - /cr3-a3f1 → Link do Telegram: w48123856
- * - /qualquer-outra-slug → Usa DEFAULT_TELEGRAM_LINK
+ * - / → Página padrão
+ * - /cr1-a1f1, /cr2-a1f1, /cr3-a1f1 → Slugs válidas
+ * - /cr1-a1f2, /cr2-a1f2, /cr3-a1f2 → Slugs válidas
+ * - /cr1-a3f1, /cr2-a3f1, /cr3-a3f1 → Slugs válidas
+ * - /cr1-a3f2, /cr2-a3f2, /cr3-a3f2 → Slugs válidas
+ * - /qualquer-outra-slug → Redireciona para home (/)
+ * 
+ * IMPORTANTE: O link do WhatsApp é FIXO e ÚNICO para todas as rotas.
  */
 function App() {
   return (
@@ -45,7 +52,7 @@ function App() {
         {/* Rota padrão (home) */}
         <Route path="/" element={<DefaultPage />} />
         
-        {/* Rotas dinâmicas com slug */}
+        {/* Rotas dinâmicas com slug - validação automática */}
         <Route path="/:slug" element={<CampaignPage />} />
       </Routes>
       

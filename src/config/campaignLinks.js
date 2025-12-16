@@ -1,52 +1,45 @@
 /**
  * Configuração de Links de Campanhas
  * 
- * WhatsApp: Link FIXO para todas as páginas
- * Telegram: Link DINÂMICO baseado na slug da URL
+ * WhatsApp: Link FIXO e ÚNICO para todas as páginas
+ * 
+ * IMPORTANTE: O link do WhatsApp não muda baseado na slug.
+ * Todas as 12 slugs permitidas usam o mesmo link do WhatsApp.
  */
 
 // ============================================
-// WHATSAPP - LINK FIXO (NÃO MUDA POR SLUG)
+// WHATSAPP - LINK FIXO E ÚNICO
 // ============================================
-export const WHATSAPP_LINK = 'https://wa.me/message/OFJTC6W4P25EA1';
+export const WHATSAPP_LINK = 'https://chat.whatsapp.com/I7QZyc64ZHYIaCNvQMMnTs';
 
 // ============================================
-// TELEGRAM - LINKS DINÂMICOS POR SLUG
+// LISTA DE SLUGS VÁLIDAS (12 slugs permitidas)
 // ============================================
-export const TELEGRAM_LINKS = {
-  'cr1-a3f1': 'https://t.me/vicentetipstertelegrambot?start=w48123852',
-  'cr2-a3f1': 'https://t.me/vicentetipstertelegrambot?start=w48123854',
-  'cr3-a3f1': 'https://t.me/vicentetipstertelegrambot?start=w48123856',
-};
-
-// Link padrão (fallback) - usa o mesmo do cr1-a3f1
-export const DEFAULT_TELEGRAM_LINK = TELEGRAM_LINKS['cr1-a3f1'];
-
-// ============================================
-// FUNÇÃO HELPER PARA OBTER LINK DO TELEGRAM
-// ============================================
-/**
- * Retorna o link do Telegram baseado na slug
- * @param {string} slug - A slug da URL (ex: 'cr1-a3f1')
- * @returns {string} - O link do Telegram correspondente ou o default
- */
-export function getTelegramLink(slug) {
-  return TELEGRAM_LINKS[slug] || DEFAULT_TELEGRAM_LINK;
-}
-
-// ============================================
-// LISTA DE SLUGS VÁLIDAS (para validação)
-// ============================================
-export const VALID_SLUGS = Object.keys(TELEGRAM_LINKS);
+export const VALID_SLUGS = [
+  'cr1-a1f1',
+  'cr2-a1f1',
+  'cr3-a1f1',
+  'cr1-a1f2',
+  'cr2-a1f2',
+  'cr3-a1f2',
+  'cr1-a3f1',
+  'cr2-a3f1',
+  'cr3-a3f1',
+  'cr1-a3f2',
+  'cr2-a3f2',
+  'cr3-a3f2',
+];
 
 /**
  * Verifica se uma slug é válida
  * @param {string} slug - A slug para verificar
- * @returns {boolean} - true se a slug existe no mapeamento
+ * @returns {boolean} - true se a slug está na lista de slugs permitidas
  */
 export function isValidSlug(slug) {
   return VALID_SLUGS.includes(slug);
 }
+
+
 
 
 

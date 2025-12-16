@@ -6,18 +6,12 @@ import './LandingPage.css';
  * Landing Page Component
  * 
  * @param {Object} props
- * @param {string} props.telegramLink - Link dinâmico do Telegram (varia por slug)
- * @param {string} props.slug - Slug atual da URL (para tracking)
+ * @param {string} props.slug - Slug atual da URL (para tracking/analytics)
+ * 
+ * IMPORTANTE: O link do WhatsApp é FIXO e ÚNICO, importado diretamente
+ * da constante WHATSAPP_LINK. Não varia baseado na slug.
  */
-function LandingPage({ telegramLink, slug }) {
-  
-  // Scroll to Telegram section
-  const scrollToTelegram = (e) => {
-    e.preventDefault();
-    document.getElementById('telegram-section')?.scrollIntoView({ 
-      behavior: 'smooth' 
-    });
-  };
+function LandingPage({ slug }) {
 
   // Initialize carousels and progress bar
   useEffect(() => {
@@ -129,23 +123,7 @@ function LandingPage({ telegramLink, slug }) {
     e.currentTarget.classList.toggle('active');
   };
 
-  // Telegram button with icon
-  const TelegramButton = ({ href, className = "cta-primary", onClick }) => (
-    <a 
-      href={href} 
-      target={onClick ? undefined : "_blank"}
-      rel={onClick ? undefined : "noopener noreferrer"}
-      className={className}
-      onClick={onClick}
-    >
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z"/>
-      </svg>
-      Entrar al Grupo Ahora
-    </a>
-  );
-
-  // WhatsApp button with icon
+  // WhatsApp button with icon (usa link fixo importado)
   const WhatsAppButton = ({ href = WHATSAPP_LINK, className = "cta-whatsapp" }) => (
     <a 
       href={href} 
@@ -165,13 +143,6 @@ function LandingPage({ telegramLink, slug }) {
   const WhatsAppDownloadLink = () => (
     <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="telegram-download-link">
       ¿Dudas? Escríbenos al WhatsApp
-    </a>
-  );
-
-  // Link "¿No tienes Telegram?" - aponta para WhatsApp (regra de negócio)
-  const NoTelegramLink = () => (
-    <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="no-telegram-link">
-      ¿No tienes Telegram? Descárgalo aquí
     </a>
   );
 
@@ -202,7 +173,6 @@ function LandingPage({ telegramLink, slug }) {
           <div className="telegram-button-wrapper">
             <WhatsAppButton />
             <WhatsAppDownloadLink />
-            <NoTelegramLink />
           </div>
         </div>
       </section>
@@ -243,7 +213,6 @@ function LandingPage({ telegramLink, slug }) {
           <div className="telegram-button-wrapper">
             <WhatsAppButton />
             <WhatsAppDownloadLink />
-            <NoTelegramLink />
           </div>
         </div>
       </section>
@@ -282,7 +251,6 @@ function LandingPage({ telegramLink, slug }) {
           <div className="telegram-button-wrapper">
             <WhatsAppButton />
             <WhatsAppDownloadLink />
-            <NoTelegramLink />
           </div>
         </div>
       </section>
@@ -320,7 +288,6 @@ function LandingPage({ telegramLink, slug }) {
           <div className="telegram-button-wrapper">
             <WhatsAppButton />
             <WhatsAppDownloadLink />
-            <NoTelegramLink />
           </div>
         </div>
       </section>
@@ -354,7 +321,6 @@ function LandingPage({ telegramLink, slug }) {
           <div className="telegram-button-wrapper">
             <WhatsAppButton />
             <WhatsAppDownloadLink />
-            <NoTelegramLink />
           </div>
         </div>
       </section>
@@ -387,13 +353,12 @@ function LandingPage({ telegramLink, slug }) {
           <div className="telegram-button-wrapper">
             <WhatsAppButton />
             <WhatsAppDownloadLink />
-            <NoTelegramLink />
           </div>
         </div>
       </section>
 
-      {/* Final CTA Section - USA O LINK DINÂMICO DO TELEGRAM */}
-      <section className="final-cta" id="telegram-section">
+      {/* Final CTA Section - USA O LINK FIXO DO WHATSAPP */}
+      <section className="final-cta" id="whatsapp-section">
         <div className="container">
           <h2>¡ENTRA AHORA AL GRUPO VIP!</h2>
           
@@ -403,16 +368,10 @@ function LandingPage({ telegramLink, slug }) {
           </p>
 
           <div className="telegram-button-wrapper">
-            {/* BOTÃO WHATSAPP COM LINK FIXO */}
+            {/* BOTÃO WHATSAPP COM LINK FIXO E ÚNICO */}
             <WhatsAppButton />
-            {/* WHATSAPP USA O LINK FIXO */}
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="telegram-download-link">
-              ¿Dudas? Escríbenos al WhatsApp
-            </a>
-            {/* LINK "¿No tienes Telegram?" - aponta para WhatsApp */}
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="no-telegram-link">
-              ¿No tienes Telegram? Descárgalo aquí
-            </a>
+            {/* LINK DE SUPORTE WHATSAPP (FIXO) */}
+            <WhatsAppDownloadLink />
           </div>
         </div>
       </section>
