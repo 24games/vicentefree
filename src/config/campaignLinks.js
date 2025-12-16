@@ -4,7 +4,7 @@
  * WhatsApp: Link FIXO e ÚNICO para todas as páginas
  * 
  * IMPORTANTE: O link do WhatsApp não muda baseado na slug.
- * Todas as 12 slugs permitidas usam o mesmo link do WhatsApp.
+ * Todas as slugs permitidas usam o mesmo link do WhatsApp.
  */
 
 // ============================================
@@ -13,7 +13,7 @@
 export const WHATSAPP_LINK = 'https://chat.whatsapp.com/I7QZyc64ZHYIaCNvQMMnTs';
 
 // ============================================
-// LISTA DE SLUGS VÁLIDAS (12 slugs permitidas)
+// LISTA DE SLUGS VÁLIDAS
 // ============================================
 export const VALID_SLUGS = [
   'cr1-a1f1',
@@ -28,6 +28,7 @@ export const VALID_SLUGS = [
   'cr1-a3f2',
   'cr2-a3f2',
   'cr3-a3f2',
+  'a6f2',
 ];
 
 /**
