@@ -42,6 +42,7 @@ function DefaultPage() {
  * - /cr1-a3f1, /cr2-a3f1, /cr3-a3f1 → Slugs válidas
  * - /cr1-a3f2, /cr2-a3f2, /cr3-a3f2 → Slugs válidas
  * - /a6f2 → Slug válida
+ * - /cr1a7f1, /cr2a7f1, /cr3a7f1 → Slugs válidas
  * - /qualquer-outra-slug → Redireciona para home (/)
  * 
  * IMPORTANTE: O link do WhatsApp é FIXO e ÚNICO para todas as rotas.

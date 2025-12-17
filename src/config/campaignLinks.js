@@ -29,6 +29,9 @@ export const VALID_SLUGS = [
   'cr2-a3f2',
   'cr3-a3f2',
   'a6f2',
+  'cr1a7f1',
+  'cr2a7f1',
+  'cr3a7f1',
 ];
 
 /**
