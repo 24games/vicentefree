@@ -92,60 +92,12 @@ function LandingPage({ slug }) {
         </div>
       </section>
 
-      {/* Seção 2 - Vicente Tips */}
-      <section className="vicente-tips-section">
-        <div className="container">
-          <h2 className="section-title">Vicente Tips</h2>
-          
-          <div className="tips-cards-grid">
-            <div className="tip-card">
-              <div className="tip-icon">📲</div>
-              <h3>Tips Diarias</h3>
-              <p>Análisis y tips enviadas directo a tu WhatsApp todos los días</p>
-            </div>
-            <div className="tip-card">
-              <div className="tip-icon">📊</div>
-              <h3>Planilla de Gestión</h3>
-              <p>Controla tu banca como un profesional con nuestra planilla exclusiva</p>
-            </div>
-            <div className="tip-card">
-              <div className="tip-icon">🎓</div>
-              <h3>Método Completo</h3>
-              <p>Aprende la estrategia detrás de cada tip y mejora tus propias análisis</p>
-            </div>
-            <div className="tip-card">
-              <div className="tip-icon">🌎</div>
-              <h3>Cobertura Total</h3>
-              <p>Champions, Libertadores, ligas europeas y más de 20 competiciones</p>
-            </div>
-            <div className="tip-card">
-              <div className="tip-icon">👥</div>
-              <h3>Comunidad Activa</h3>
-              <p>Intercambia experiencias con más de 15.000 miembros</p>
-            </div>
-            <div className="tip-card">
-              <div className="tip-icon">🎯</div>
-              <h3>Cuotas Altas</h3>
-              <p>Buscamos odds de 2.0+ con análisis que justifican cada entrada</p>
-            </div>
-          </div>
-
-          <div className="telegram-button-wrapper">
-            <WhatsAppButton />
-            <WhatsAppDownloadLink />
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer>
         <div className="footer-content">
+          <h2 className="footer-title">Vicente Tips</h2>
+          
           <div className="footer-main">
-            <div className="footer-brand">
-              <h3>Vicente Perpétuo</h3>
-              <p>El grupo más grande de análisis de fútbol de Chile</p>
-            </div>
-            
             <div className="footer-stats">
               <div className="footer-stat">
                 <span className="stat-number">15K+</span>

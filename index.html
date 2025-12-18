@@ -83,35 +83,22 @@
         .telegram-download-link:hover { color: #0088cc; }
         footer { background: linear-gradient(180deg, #0a1628 0%, #000 100%); padding: 4rem 2rem 2rem; border-top: 3px solid #9EFF00; position: relative; overflow: hidden; }
         footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, #9EFF00, transparent); }
-        .footer-content { max-width: 1200px; margin: 0 auto; }
-        .footer-main { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; align-items: center; }
-        .footer-brand h3 { font-size: 1.8rem; font-weight: 900; color: #9EFF00; margin-bottom: 0.5rem; text-transform: uppercase; }
-        .footer-brand p { color: #d1d5db; font-size: 0.95rem; line-height: 1.6; }
-        .footer-stats { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+        .footer-content { max-width: 1400px; margin: 0 auto; text-align: center; }
+        .footer-title { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; color: #9EFF00; margin-bottom: 3rem; text-transform: uppercase; }
+        .footer-main { display: flex; flex-direction: column; align-items: center; gap: 3rem; margin-bottom: 3rem; }
+        .footer-stats { display: flex; justify-content: center; gap: 2rem; flex-wrap: nowrap; width: 100%; max-width: 1000px; }
         .footer-stat { text-align: center; padding: 1rem; background: rgba(158, 255, 0, 0.1); border: 2px solid rgba(158, 255, 0, 0.3); border-radius: 12px; min-width: 100px; }
         .footer-stat .stat-number { display: block; font-size: 1.8rem; font-weight: 900; color: #9EFF00; margin-bottom: 0.3rem; }
         .footer-stat .stat-label { display: block; font-size: 0.85rem; color: #d1d5db; font-weight: 600; }
         .footer-cta { display: flex; justify-content: center; align-items: center; }
         .footer-whatsapp-btn { padding: 1rem 2.5rem; font-size: 1.1rem; }
-        .vicente-tips-section { background: linear-gradient(180deg, #0a1628 0%, #1a1a2e 50%, #16213e 100%); padding: 4rem 2rem; text-align: center; }
-        .vicente-tips-section .container { max-width: 1400px; margin: 0 auto; }
-        .vicente-tips-section .section-title { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; color: #9EFF00; margin-bottom: 3rem; text-transform: uppercase; }
-        .tips-cards-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
-        .tip-card { background: rgba(0, 0, 0, 0.6); border: 2px solid #9EFF00; border-radius: 16px; padding: 2rem 1.5rem; text-align: center; transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .tip-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(158, 255, 0, 0.3); border-color: #fff; }
-        .tip-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-        .tip-card h3 { font-size: 1.1rem; font-weight: 900; color: #9EFF00; margin-bottom: 0.8rem; text-transform: uppercase; }
-        .tip-card p { color: #d1d5db; font-size: 0.9rem; line-height: 1.5; margin: 0; }
-        @media (max-width: 1200px) { .tips-cards-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 768px) { .vicente-tips-section { padding: 3rem 1.5rem; } .tips-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; } .tip-card { padding: 1.5rem 1rem; } }
-        @media (max-width: 640px) { .tips-cards-grid { grid-template-columns: 1fr; } }
         .footer-bottom { padding-top: 2rem; border-top: 1px solid rgba(158, 255, 0, 0.2); text-align: center; }
         .footer-links { display: flex; gap: 1rem; justify-content: center; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; }
         .footer-links a { color: #9ca3af; text-decoration: none; transition: color 0.3s ease; font-weight: 600; font-size: 0.9rem; }
         .footer-links a:hover { color: #9EFF00; }
         .footer-links .separator { color: rgba(158, 255, 0, 0.3); margin: 0 0.5rem; }
         .footer-copyright { color: #6b7280; font-size: 0.85rem; margin-top: 1rem; }
-        @media (max-width: 968px) { .footer-main { grid-template-columns: 1fr; gap: 2rem; text-align: center; } .footer-stats { justify-content: center; } }
+        @media (max-width: 968px) { .footer-stats { flex-wrap: wrap; justify-content: center; } }
         @media (max-width: 640px) { footer { padding: 3rem 1.5rem 1.5rem; } .footer-stats { gap: 1rem; } .footer-stat { min-width: 80px; padding: 0.8rem; } .footer-stat .stat-number { font-size: 1.5rem; } .footer-links { flex-direction: column; gap: 0.5rem; } .footer-links .separator { display: none; } }
         @media (max-width: 768px) { .hero-title { font-size: clamp(1.5rem, 5vw, 2rem); line-height: 1.2; padding: 0 1rem; margin-top: -15rem !important; } .hero-text-content { margin-top: -12rem; padding: 1.5rem 1rem; } .carousel-arrow { display: none; } .cta-primary { padding: 1rem 2rem; font-size: 1.1rem; } .cta-whatsapp { padding: 1rem 2rem; font-size: 1.1rem; } }
         @media (max-width: 640px) { .hero-title { font-size: clamp(1.3rem, 6vw, 1.8rem); margin-top: -12rem !important; } .hero-text-content { margin-top: -10rem; padding: 1rem; } .hero-subtitle { font-size: clamp(0.9rem, 3vw, 1.1rem); padding: 0 1rem; } }
@@ -139,27 +126,10 @@
             </div>
         </div>
     </section>
-    <section class="vicente-tips-section">
-        <div class="container">
-            <h2 class="section-title">Vicente Tips</h2>
-            <div class="tips-cards-grid">
-                <div class="tip-card"><div class="tip-icon">📲</div><h3>Tips Diarias</h3><p>Análisis y tips enviadas directo a tu WhatsApp todos los días</p></div>
-                <div class="tip-card"><div class="tip-icon">📊</div><h3>Planilla de Gestión</h3><p>Controla tu banca como un profesional con nuestra planilla exclusiva</p></div>
-                <div class="tip-card"><div class="tip-icon">🎓</div><h3>Método Completo</h3><p>Aprende la estrategia detrás de cada tip y mejora tus propias análisis</p></div>
-                <div class="tip-card"><div class="tip-icon">🌎</div><h3>Cobertura Total</h3><p>Champions, Libertadores, ligas europeas y más de 20 competiciones</p></div>
-                <div class="tip-card"><div class="tip-icon">👥</div><h3>Comunidad Activa</h3><p>Intercambia experiencias con más de 15.000 miembros</p></div>
-                <div class="tip-card"><div class="tip-icon">🎯</div><h3>Cuotas Altas</h3><p>Buscamos odds de 2.0+ con análisis que justifican cada entrada</p></div>
-            </div>
-            <div class="telegram-button-wrapper"><a href="https://chat.whatsapp.com/I7QZyc64ZHYIaCNvQMMnTs" class="cta-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Entrar al Grupo Ahora"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>Entrar al Grupo Ahora</a></div>
-        </div>
-    </section>
     <footer>
         <div class="footer-content">
+            <h2 class="footer-title">Vicente Tips</h2>
             <div class="footer-main">
-                <div class="footer-brand">
-                    <h3>Vicente Perpétuo</h3>
-                    <p>El grupo más grande de análisis de fútbol de Chile</p>
-                </div>
                 <div class="footer-stats">
                     <div class="footer-stat">
                         <span class="stat-number">15K+</span>
