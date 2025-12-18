@@ -496,6 +496,8 @@ body {
     align-items: center;
     gap: 1.5rem;
     margin-top: 3rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .hero-content .telegram-button-wrapper {
@@ -559,7 +561,7 @@ body {
 footer {
     background: linear-gradient(180deg, #0a1628 0%, #000 100%);
     padding: 4rem 2rem 2rem;
-    margin-top: -8rem;
+    margin-top: 1rem;
     border-top: 3px solid #9EFF00;
     position: relative;
     overflow: hidden;
