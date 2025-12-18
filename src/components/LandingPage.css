@@ -599,19 +599,21 @@ footer::before {
 .footer-stats {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
     flex-wrap: nowrap;
     width: 100%;
     max-width: 1000px;
 }
 
 .footer-stat {
+    flex: 1;
+    min-width: 0;
+    max-width: 300px;
     text-align: center;
     padding: 1rem;
     background: rgba(158, 255, 0, 0.1);
     border: 2px solid rgba(158, 255, 0, 0.3);
     border-radius: 12px;
-    min-width: 100px;
 }
 
 .footer-stat .stat-number {
@@ -681,8 +683,13 @@ footer::before {
 
 @media (max-width: 968px) {
     .footer-stats {
-        flex-wrap: wrap;
-        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .footer-stat {
+        flex: 1;
+        min-width: 120px;
+        max-width: none;
     }
 }
 
