@@ -125,7 +125,7 @@ body {
     max-width: 100%;
     width: auto;
     height: auto;
-    max-height: clamp(5rem, 12vw, 10rem);
+    max-height: clamp(7rem, 16vw, 14rem);
     object-fit: contain;
     border: 2px solid rgba(158, 255, 0, 0.3);
     border-radius: 12px;
