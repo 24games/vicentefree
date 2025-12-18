@@ -164,7 +164,7 @@ function LandingPage({ slug }) {
 
           <div className="hero-headline-image" style={{ marginTop: '-25rem', position: 'relative', zIndex: 3 }}>
             <img 
-              src="/image/vicente_grupos.jpg" 
+              src="/image/vicente_grupos.jpeg" 
               alt="Grupos Vicente Tips" 
               className="headline-image"
             />
