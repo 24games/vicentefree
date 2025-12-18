@@ -162,21 +162,23 @@ function LandingPage({ slug }) {
             />
           </div>
 
-          <div className="hero-headline-image" style={{ marginTop: '-25rem', position: 'relative', zIndex: 3 }}>
-            <img 
-              src="/image/vicente_grupos.jpeg" 
-              alt="Grupos Vicente Tips" 
-              className="headline-image"
-            />
-          </div>
+          <div className="hero-text-content">
+            <div className="hero-headline-image">
+              <img 
+                src="/image/vicente_grupos.jpeg" 
+                alt="Grupos Vicente Tips" 
+                className="headline-image"
+              />
+            </div>
 
-          <p className="hero-subtitle" style={{ marginTop: '0.5rem', position: 'relative', zIndex: 3 }}>
-            Tips diarias y ganancias todos los días | <span className="highlight">+15.000 Miembros Activos</span>
-          </p>
+            <p className="hero-subtitle">
+              Tips diarias y ganancias todos los días | <span className="highlight">+15.000 Miembros Activos</span>
+            </p>
 
-          <div className="telegram-button-wrapper">
-            <WhatsAppButton />
-            <WhatsAppDownloadLink />
+            <div className="telegram-button-wrapper">
+              <WhatsAppButton />
+              <WhatsAppDownloadLink />
+            </div>
           </div>
         </div>
       </section>
