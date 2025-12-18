@@ -167,7 +167,7 @@ function LandingPage({ slug }) {
           </h1>
 
           <p className="hero-subtitle" style={{ marginTop: '0.5rem', position: 'relative', zIndex: 3 }}>
-            Transforma $100 CLP en Ganancias Reales con Tips Diarias de Expertos Chilenos | <span className="highlight">+15.000 Miembros Activos</span>
+            Tips diarias y ganancias todos los días | <span className="highlight">+15.000 Miembros Activos</span>
           </p>
 
           <div className="telegram-button-wrapper">
