@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TESTE - Servidor Funcionando</title>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container {
+            padding: 2rem;
+        }
+        h1 {
+            color: #25D366;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+        .cta-whatsapp {
+            background: #25D366;
+            color: #fff;
+            padding: 1.5rem 3rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 2rem;
+        }
+        .cta-whatsapp:hover {
+            background: #128C7E;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ SERVIDOR FUNCIONANDO!</h1>
+        <p style="font-size: 1.5rem;">Se você vê esta mensagem, o servidor está OK.</p>
+        <a href="index.html" class="cta-whatsapp">VER PÁGINA PRINCIPAL</a>
+        <br><br>
+        <p style="color: #999;">Porta: 8000 | Hora: <span id="time"></span></p>
+    </div>
+    <script>
+        document.getElementById('time').textContent = new Date().toLocaleTimeString();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

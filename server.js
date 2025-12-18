@@ -3,7 +3,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = 5173;
+const PORT = 8000;
 
 const mimeTypes = {
   '.html': 'text/html',
@@ -72,11 +72,11 @@ server.listen(PORT, () => {
   console.log('');
   console.log('🌐 ACESSE NO NAVEGADOR:');
   console.log('');
-  console.log('   http://localhost:5173/landing-page.html');
+  console.log('   http://localhost:8000/landing-page.html');
   console.log('');
   console.log('   OU');
   console.log('');
-  console.log('   http://localhost:5173/');
+  console.log('   http://localhost:8000/');
   console.log('');
   console.log('========================================');
   console.log('');
@@ -84,7 +84,7 @@ server.listen(PORT, () => {
   // Abrir navegador automaticamente após 1 segundo
   setTimeout(() => {
     const { exec } = require('child_process');
-    const url = 'http://localhost:5173/landing-page.html';
+    const url = 'http://localhost:8000/landing-page.html';
     const command = process.platform === 'win32' 
       ? `start ${url}` 
       : process.platform === 'darwin' 
@@ -93,6 +93,7 @@ server.listen(PORT, () => {
     exec(command);
   }, 1000);
 });
+
 
 
 

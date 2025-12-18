@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Botão WhatsApp</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .demo-container {
+            background: #fff;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .button-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .button-label {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Botão Telegram (Original) */
+        .cta-telegram {
+            background: #0088cc;
+            color: #fff;
+            border: none;
+            padding: 1.2rem 3rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(0, 136, 204, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+        
+        .cta-telegram:hover {
+            background: #0077b5;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 136, 204, 0.5);
+        }
+        
+        .cta-telegram svg {
+            width: 22px;
+            height: 22px;
+            fill: #fff;
+        }
+        
+        /* Botão WhatsApp (Novo) */
+        .cta-whatsapp {
+            background: #25D366;
+            color: #fff;
+            border: none;
+            padding: 1.2rem 3rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+        
+        .cta-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
+        }
+        
+        .cta-whatsapp svg {
+            width: 22px;
+            height: 22px;
+            fill: #fff;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .comparison-table th {
+            background: #f3f4f6;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .comparison-table td {
+            color: #666;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        @media (max-width: 768px) {
+            .demo-container {
+                padding: 1.5rem;
+            }
+            
+            .cta-telegram,
+            .cta-whatsapp {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1>🎨 Demonstração dos Botões</h1>
+        <p class="subtitle">Comparação: Telegram (Original) vs WhatsApp (Refatorado)</p>
+        
+        <div class="buttons-grid">
+            <div class="button-section">
+                <div class="button-label">📱 Botão Telegram (Original)</div>
+                <a href="#" class="cta-telegram">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z"/>
+                    </svg>
+                    Entrar al Grupo Ahora
+                </a>
+            </div>
+            
+            <div class="button-section">
+                <div class="button-label">💬 Botão WhatsApp (Refatorado)</div>
+                <a href="https://wa.me/message/OFJTC6W4P25EA1" class="cta-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    Conversar no WhatsApp
+                </a>
+            </div>
+        </div>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Propriedade</th>
+                    <th>Telegram</th>
+                    <th>WhatsApp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Cor de fundo</strong></td>
+                    <td>#0088cc (Azul)</td>
+                    <td>#25D366 (Verde)</td>
+                </tr>
+                <tr>
+                    <td><strong>Cor hover</strong></td>
+                    <td>#0077b5</td>
+                    <td>#128C7E</td>
+                </tr>
+                <tr>
+                    <td><strong>Ícone</strong></td>
+                    <td>Avião de papel</td>
+                    <td>Logo WhatsApp</td>
+                </tr>
+                <tr>
+                    <td><strong>Texto</strong></td>
+                    <td>Entrar al Grupo Ahora</td>
+                    <td>Conversar no WhatsApp</td>
+                </tr>
+                <tr>
+                    <td><strong>Link</strong></td>
+                    <td>t.me (Dinâmico)</td>
+                    <td>wa.me (Fixo)</td>
+                </tr>
+                <tr>
+                    <td><strong>Aria-label</strong></td>
+                    <td>-</td>
+                    <td>Conversar no WhatsApp</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
