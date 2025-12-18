@@ -77,21 +77,21 @@ body {
     position: relative;
     z-index: 3;
     max-width: 1200px;
-    margin: -15rem auto 0;
+    margin: -18rem auto 0;
     padding: 2rem 1rem;
     text-align: center;
 }
 
 @media (max-width: 768px) {
     .hero-text-content {
-        margin-top: -10rem;
+        margin-top: -12rem;
         padding: 1.5rem 1rem;
     }
 }
 
 @media (max-width: 640px) {
     .hero-text-content {
-        margin-top: -8rem;
+        margin-top: -10rem;
         padding: 1rem;
     }
 }
