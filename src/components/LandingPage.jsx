@@ -162,9 +162,13 @@ function LandingPage({ slug }) {
             />
           </div>
 
-          <h1 className="hero-title" style={{ marginTop: '-25rem', position: 'relative', zIndex: 3 }}>
-            EL <span className="accent">GRUPO MÁS GRANDE</span> DE <span className="accent">ANÁLISIS DE FÚTBOL</span> DE CHILE
-          </h1>
+          <div className="hero-headline-image" style={{ marginTop: '-25rem', position: 'relative', zIndex: 3 }}>
+            <img 
+              src="/image/vicente_grupos.jpg" 
+              alt="Grupos Vicente Tips" 
+              className="headline-image"
+            />
+          </div>
 
           <p className="hero-subtitle" style={{ marginTop: '0.5rem', position: 'relative', zIndex: 3 }}>
             Tips diarias y ganancias todos los días | <span className="highlight">+15.000 Miembros Activos</span>
